@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<main class="tariff">
+  <h2 class="title">
+    Услуга: {{service.title}}
+  </h2>
+    <div class="tariff-form">
+        <form method="POST" class="post-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_div}}
+            <button type="submit" class="save btn btn-primary mt-4" style="width:100%">Save</button>
+        </form>
+    </div>
+</main>
+{% endblock content %}
