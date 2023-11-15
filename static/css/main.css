@@ -1,0 +1,88 @@
+body {
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+main {
+    margin: 0 20px;
+}
+
+/* navbar */
+#navbar {
+    /* border: 1px solid #DEE2E6; */
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.title {
+    margin: 20px 0;
+}
+
+/* Login page */
+.login-form {
+    width: 900px;
+    height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-form .form {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
+
+#logo-img {
+    width: 350px;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-label input {
+    width: 328px;
+}
+
+.login-form .form p {
+    margin: 3px 0;
+}
+
+.form .submit-btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#not-authenticated {
+    color: red;
+}
+
+/* main */
+#logo {
+    width: 150px;
+}
+
+.tariff {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tariff-form label {
+    margin: 20px 0 1px 5px;
+    font-weight: bold;
+}
