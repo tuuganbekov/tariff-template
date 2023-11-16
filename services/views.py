@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .models import Services
-from .forms import ServiceForm
+from .forms import ServiceForm, ServiceModelForm
 
 def service_list(request):
     services = Services.objects.all()
@@ -28,4 +28,27 @@ def service_detail(request, pk):
                 "price": service.price
             }
         )
-    return render(request, 'tariff/tariff-detail.html', locals())
+    return render(request, 'services/service-detail.html', locals())
+
+
+def delete_service(request, pk):
+    service = Services.objects.get(id=pk)
+    if request.method == "POST":
+        service.delete()
+        return redirect("services:service-list")
+    
+
+def create_service(request):
+    if request.method == "POST":
+        form = ServiceModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            service = Services.objects.create(
+                title = form.cleaned_data["title"],
+                description = form.cleaned_data["description"],
+                price = form.cleaned_data["price"],
+                image = form.cleaned_data["image"],
+            )
+            return redirect("services:service-list")
+    else:
+        form = ServiceModelForm()
+        return render(request, "services/service-create.html", locals())

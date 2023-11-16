@@ -22,7 +22,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            {% if user.is_authenticated %}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item" >
@@ -32,17 +31,13 @@
                   <a class="nav-link" href="{% url 'services:service-list' %}" onclick="toggleClass(event)">Услуги</a>
                 </li>
               </ul>
-              <form class="d-flex" method="POST" action="#">
-                {% csrf_token %}
-                <button class="btn btn-outline-success" type="submit">Выйти</button>
-              </form>
+                  {% if request.path == '/services/' %}
+                    <button class="btn btn-outline-success" type="submit" onclick="redirectToServiceCreate()">Создать сервис</button>
+                  {% endif %}
             </div>
-          {% endif %}
 
         </div>
       </nav>
-    {% if user.is_authenticated%}
-    {% endif %}
     {% block content %}
     {% endblock content %}
     <script>
@@ -57,6 +52,9 @@
         });
       }
       activateNavbar()
+      function redirectToServiceCreate(){
+        window.location.href = "{% url 'services:create-service' %}"
+      }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

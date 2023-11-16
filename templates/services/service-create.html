@@ -3,19 +3,13 @@
 {% block content %}
     <main class="tariff">
         <h2 class="title">
-            {{tariff.title}}
+            Create service
         </h2>
         <form method="post" class="post-form" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_div}}
             <button type="submit" class="save btn btn-primary mt-4" style="width: 100%;">
-                Save
-            </button>
-        </form>
-        <form method="post" action="{% url 'tariff:delete' pk=tariff.pk %}" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit" class="delete btn btn-danger mt-4" style="width: 100%;">
-                Delete
+                Создать Сервис
             </button>
         </form>
     </main>

@@ -1,5 +1,7 @@
 from django import forms
 
+from .models import Services
+
 
 class ServiceForm(forms.Form):
     title = forms.CharField(
@@ -25,3 +27,11 @@ class ServiceForm(forms.Form):
         ),
         required=True
     )
+
+class ServiceModelForm(forms.ModelForm):
+    class Meta:
+        model = Services
+        fields = "__all__"
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+        }

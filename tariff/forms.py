@@ -1,5 +1,7 @@
 from django import forms
 
+from .models import Tariff
+
 
 class TariffForm(forms.Form):
     title = forms.CharField(
@@ -25,3 +27,14 @@ class TariffForm(forms.Form):
         ),
         required=True
     )
+
+class TariffModelForm(forms.ModelForm):
+    class Meta:
+        model = Tariff
+        fields = "__all__"
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+            "description": forms.Textarea(attrs={"class": "form-control"}),
+            "price": forms.NumberInput(attrs={"class": "form-control"}),
+            "image": forms.FileInput(attrs={"class": "form-control"}),
+        }

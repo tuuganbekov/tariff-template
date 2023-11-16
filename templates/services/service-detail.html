@@ -11,6 +11,10 @@
             {{form.as_div}}
             <button type="submit" class="save btn btn-primary mt-4" style="width:100%">Save</button>
         </form>
+        <form method="POST" class="post-form" action="{% url 'services:delete-service' pk=service.id %}">
+            {% csrf_token %}
+            <button type="submit" class="save btn btn-danger mt-4" style="width:100%">Delete</button>
+        </form>
     </div>
 </main>
 {% endblock content %}
